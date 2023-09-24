@@ -3,6 +3,12 @@
 import java.util.HashSet;
 
 class Solution {
+    public String addZeros(String binary, int len) {
+        for(int i=binary.length(); i<len; i+=1) {
+            binary = "0" + binary;
+        } 
+        return binary;
+    }
     public String findDifferentBinaryString(String[] nums) {
         HashSet<Integer> set = new HashSet<>();
         String binary = "";
@@ -22,7 +28,7 @@ class Solution {
             }
         }
         String binaryString = Integer.toBinaryString(result);
-        return binaryString;
+        return addZeros(binaryString, nums[0].length());
     }
 }
 
@@ -33,6 +39,6 @@ class Solution {
 public class UniqueBinary {
     public static void main(String args[]) {
         Solution solution = new Solution();
-        System.out.println(solution.findDifferentBinaryString(new String[]{"01", "00"}));
+        System.out.println(solution.findDifferentBinaryString(new String[]{"111","011","001"}));
     }
 }
