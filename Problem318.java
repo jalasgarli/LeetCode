@@ -9,6 +9,11 @@ class Solution318 {
         }
         return word.length() == characters.size();
     }
+    /* 
+     * There is problem in lenght part
+     * when I run the code. It gives me the correct string or correct concatination.
+     * However, It does not give me the correct result. It should be fixed.
+     */
     public int maxProduct(String[] words) {
         HashMap<String, Integer> map = new HashMap<>();
         for(int i=0; i<words.length; i++) {
