@@ -1,4 +1,10 @@
 class Solution2864 {
+    public String AddZeros(int len, String s) {
+        for(int i=s.length(); i<len; i++) {
+            s = "0" + s;
+        }
+        return s;
+    }
     public boolean checkOnes(int number, String binary) {
         int count = 0;
         for(int i=0; i<binary.length(); i++) {
@@ -16,7 +22,6 @@ class Solution2864 {
             ss += "1";
         }
         int number = Integer.parseInt(ss, 2);
-        System.out.println(number);
         for(int i=0; i<s.length(); i++) {
             if(s.charAt(i) == '1') numberOfOnes++;
         }
@@ -26,13 +31,13 @@ class Solution2864 {
                 result = Integer.toBinaryString(i);
             }
         }
-        return result;
+        return AddZeros(s.length(), result);
     }
 }
 
 public class Problem2864 {
     public static void main(String[] args) {
         Solution2864 solution2864 = new Solution2864();
-        System.out.println(solution2864.maximumOddBinaryNumber("0101"));
+        System.out.println(solution2864.maximumOddBinaryNumber("010"));
     }
 }
