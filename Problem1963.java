@@ -1,28 +1,34 @@
 import java.util.Stack;
 
-class Solution1963 {
-    public int minSwaps(String s) {
-        Stack<Character> stack = new Stack<>();
-        // ]]][[[
-        for(int i=0; i<s.length(); i++) {
-            if(s.charAt(i) == '[') {
-                stack.add(s.charAt(i));
+class Solution946 {
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        Stack<Integer> stack = new Stack<>();
+        int i=0, j=0;
+        while(i < pushed.length && j<popped.length) {
+            if(stack.isEmpty() == false && stack.peek() == popped[j]) {
+                stack.pop();
+                j += 1;
             } else {
-                if(stack.isEmpty() == false && stack.peek() == '[') {
-                    stack.pop();
-                } else {
-                    stack.add(s.charAt(i));
-                }
+                stack.push(pushed[i]);
+                i += 1;
             }
         }
-        System.out.println(stack.size()/2);
-        return 0;
+        for( ; j<popped.length; ) {
+            if(stack.isEmpty() == false && stack.peek() == popped[j]) {
+                stack.pop();
+                j += 1;
+            }
+        }
+        System.out.println(stack);
+        return true;
     }
 }
 
 public class Problem1963 {
     public static void main(String[] args) {
-        Solution1963 solution1963 = new Solution1963();
-        System.out.println(solution1963.minSwaps("]]][[["));
+        Solution946 solution1963 = new Solution946();
+        int[] pushed = {1,2,3,4,5};
+        int[] popped = {4,3,5,1,2};
+        System.out.println(solution1963.validateStackSequences(pushed, popped));
     }
 }
