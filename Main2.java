@@ -7,13 +7,13 @@ class Solution2 {
         } else if(n%3==1) {
             return (int)Math.pow(3, (n/3-1))*4;
         }
-        return (int)Math.pow(3, (n/3)-2)*16;
+        return (int)Math.pow(3, (n/3))*2;
     }
 }
 
 public class Main2 {
     public static void main(String[] args) {
         Solution2 solution2 = new Solution2();
-        System.out.println(solution2.integerBreak(5));
+        System.out.println(solution2.integerBreak(13));
     }
 }
