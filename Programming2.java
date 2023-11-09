@@ -12,12 +12,19 @@ public class Programming2 {
             FileInputStream fileInputStream =new FileInputStream(file);
             Scanner scanner = new Scanner(fileInputStream);
             int result = 0;
+            int n = scanner.nextInt();
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
-                for(int i=0; i<line.length(); i++) {
-                    if(line.charAt(i) >= '0' && line.charAt(i) <= '9') {
-                        int number = line.charAt(i) - '0';
-                        result += number;
+                String[] array = line.split("\\s+"); 
+                for(int i=0; i<array.length; i++) {
+                    int count = 0;
+                    for(int j=0; j<array[i].length(); i++) {
+                        if(array[i].charAt(j) >= 'A' && array[i].charAt(j) <= 'Z') {
+                            count += 1;
+                        }
+                    }
+                    if(count == n) {
+                        result += 1;
                     }
                 }
             }
