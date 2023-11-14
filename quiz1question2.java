@@ -4,23 +4,21 @@ import java.util.Scanner;
 
 public class quiz1question2 {
     public static void main(String[] args) {
-        String filePath = "input-10.txt";
+        String filePath = "/Users/javidalasgarli/Desktop/LeetCode/input-11.txt";
         try {
             File file = new File(filePath);
             FileInputStream fileInputStream = new FileInputStream(file);
             Scanner scanner = new Scanner(fileInputStream);
             int n = scanner.nextInt();
-            int k = scanner.nextInt();
             int[] array = new int[n];
             for(int i=0; i<n; i++) {
                 array[i] = scanner.nextInt();
             }
             int count = 0;
             for(int i=0; i<array.length; i++) {
-                for(int j=i+1; j<array.length; j++) {
-                    if((array[i] + array[j])%k == 0) {
-                        count += 1;
-                    }
+                if(array[i] < 0) {
+                    count += 1;
+                    //System.out.println(array[i]);
                 }
             }
             System.out.println(count);
